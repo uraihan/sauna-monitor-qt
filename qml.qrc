@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>UI/HomeScreen.qml</file>
+        <file>asset/gear-icon.svg</file>
+        <file>asset/sauna-icon.svg</file>
+    </qresource>
+</RCC>
