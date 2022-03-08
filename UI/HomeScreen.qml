@@ -6,7 +6,7 @@ Item {
     Rectangle {
         id: mainBackground
         anchors.fill: parent
-        color: "black"
+        color: "grey"
     }
 
     Text {
@@ -14,7 +14,7 @@ Item {
         anchors.centerIn: parent
         color: "white"
         font.pixelSize: 150
-        text: "70"
+        text: saunaController.currentTemp
     }
 
     Text {
@@ -22,47 +22,56 @@ Item {
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: temperature.bottom
-            topMargin: 2
         }
-        text: "Heating..."
+        text: saunaController.statusMessage
         color: "white"
         font.pixelSize: 30
     }
 
     Image {
-        id: saunaIcon
+        id: powerIcon
         anchors {
-            top: temperature.top
-            right: temperature.left
-            rightMargin: 106
-            leftMargin: 70
+            horizontalCenter: parent.horizontalCenter
+            bottom: temperature.top
+            bottomMargin: 40
         }
         height: 70
         width: 70
-        source: "qrc:/asset/sauna-icon.svg"
+        source: "qrc:/asset/power-button.svg"
     }
     ColorOverlay {
-        anchors.fill: saunaIcon
-        source: saunaIcon
+        anchors.fill: powerIcon
+        source: powerIcon
         color: "white"
     }
 
     Image {
         id: settingsIcon
         anchors {
-            top: temperature.bottom
+            verticalCenter: parent.verticalCenter
             right: temperature.left
-            rightMargin: 106
-            leftMargin: 70
+            rightMargin: 100
         }
         height: 70
         width: 70
         source: "qrc:/asset/gear-icon.svg"
     }
-
     ColorOverlay {
         anchors.fill: settingsIcon
         source: settingsIcon
         color: "white"
+    }
+
+    ControlSlider {
+        id: tempSlider
+        value: saunaController.targetTemp
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+            left: temperature.right
+            leftMargin: 112
+            topMargin: 80
+            bottomMargin: 80
+        }
     }
 }

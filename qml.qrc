@@ -4,5 +4,7 @@
         <file>UI/HomeScreen.qml</file>
         <file>asset/gear-icon.svg</file>
         <file>asset/sauna-icon.svg</file>
+        <file>UI/ControlSlider.qml</file>
+        <file>asset/power-button.svg</file>
     </qresource>
 </RCC>
