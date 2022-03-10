@@ -15,6 +15,6 @@ Window {
     Loader {
         id: mainLoader
         anchors.fill: parent
-        source: "./UI/HomeScreen.qml"
+        source: "./UI/Greeter.qml"
     }
 }

@@ -6,5 +6,10 @@
         <file>asset/sauna-icon.svg</file>
         <file>UI/ControlSlider.qml</file>
         <file>asset/power-button.svg</file>
+        <file>UI/SettingsDialog.qml</file>
+        <file>UI/Greeter.qml</file>
+        <file>asset/info-icon.svg</file>
+        <file>UI/AboutPage.qml</file>
+        <file>asset/back-icon.svg</file>
     </qresource>
 </RCC>

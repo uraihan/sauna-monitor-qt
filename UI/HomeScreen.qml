@@ -1,8 +1,10 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
+import SaunaSysControl 1.0
 
 Item {
+    id: homeScreen
+
     Rectangle {
         id: mainBackground
         anchors.fill: parent
@@ -38,6 +40,10 @@ Item {
         height: 70
         width: 70
         source: "qrc:/asset/power-button.svg"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: mainLoader.source = "qrc:/UI/Greeter.qml"
+        }
     }
     ColorOverlay {
         anchors.fill: powerIcon
@@ -55,6 +61,11 @@ Item {
         height: 70
         width: 70
         source: "qrc:/asset/gear-icon.svg"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: mainLoader.source = "qrc:/UI/SettingsDialog.qml"
+        }
     }
     ColorOverlay {
         anchors.fill: settingsIcon
