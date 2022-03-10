@@ -42,7 +42,7 @@ Item {
         source: "qrc:/asset/power-button.svg"
         MouseArea {
             anchors.fill: parent
-            onClicked: mainLoader.source = "qrc:/UI/Greeter.qml"
+            onClicked: mainLoader.source = "qrc:/UI/TurningOff.qml"
         }
     }
     ColorOverlay {

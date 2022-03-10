@@ -11,5 +11,6 @@
         <file>asset/info-icon.svg</file>
         <file>UI/AboutPage.qml</file>
         <file>asset/back-icon.svg</file>
+        <file>UI/TurningOff.qml</file>
     </qresource>
 </RCC>
