@@ -39,7 +39,7 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: aboutPage.destroyAbout()
+            onClicked: stackView.pop()
         }
     }
 
