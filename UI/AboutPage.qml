@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 
 Rectangle {
     id: aboutPage
@@ -22,19 +23,39 @@ Rectangle {
         anchors.centerIn: aboutBackground
     }
 
-    Image {
-        id: backButton
+    RoundButton {
+        id: backIcon
+        height: 50
+        width: 50
+        text: "\u276E"
+        font.family: "Verdana"
+        font.pointSize: 15
+
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: aboutBackground.bottom
             bottomMargin: 30
         }
-        source: "qrc:/asset/back-icon.svg"
-        height: 50
-        width: 50
+
         MouseArea {
             anchors.fill: parent
             onClicked: aboutPage.destroyAbout()
         }
     }
+
+//    Image {
+//        id: backButton
+//        anchors {
+//            horizontalCenter: parent.horizontalCenter
+//            bottom: aboutBackground.bottom
+//            bottomMargin: 30
+//        }
+//        source: "qrc:/asset/back-icon.svg"
+//        height: 50
+//        width: 50
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: aboutPage.destroyAbout()
+//        }
+//    }
 }

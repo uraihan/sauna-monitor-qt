@@ -65,9 +65,9 @@ void Controls::setSaunaState(HeatingState newSaunaState)
 
 void Controls::checkSaunaStatus()
 {
-    if ( m_currentTemp < m_targetTemp )
+    if ( m_currentTemp < m_targetTemp && m_currentTemp < (m_targetTemp - 5) )
         setStatusMessage("Heating");
-    else if ( m_currentTemp > m_targetTemp )
+    else if ( m_currentTemp > m_targetTemp && m_currentTemp > (m_targetTemp + 5) )
         setStatusMessage("Cooling");
     else
         setStatusMessage("Idle");

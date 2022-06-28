@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Controls.Imagine
-import SaunaSysControl 1.0
+import SaunaSysControl
 
 ApplicationWindow {
     width: 640
