@@ -1,8 +1,10 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls
+import QtQuick.Controls.Imagine
 import SaunaSysControl 1.0
 
-Window {
+ApplicationWindow {
     width: 640
     height: 480
     visible: true

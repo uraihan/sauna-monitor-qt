@@ -1,5 +1,6 @@
 QT += quick
 QT += svg
+QT += core5compat
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -25,3 +26,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     controls/controls.h
+
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x050F00

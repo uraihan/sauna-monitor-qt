@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.15
-import QtQuick.Controls 2.15
+import QtQuick
+import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
 
 Item {
     id: greeterScreen
@@ -39,7 +39,7 @@ Item {
         }
         text: "SAUNAMASTER 1.0"
         color: "black"
-        font.pixelSize: 60
+        font.pixelSize: 50
 
     }
 
@@ -72,7 +72,7 @@ Item {
             top: saunaIcon.bottom
             topMargin: -30
         }
-        text: "Tap to start the sauna"
+        text: "Tap the Kiuas above to start"
         color: "white"
         font.pixelSize: 30
         MouseArea {
@@ -81,19 +81,36 @@ Item {
         }
     }
 
-    Image {
+    RoundButton {
         id: infoIcon
+        height: 50
+        width: 50
+        text: qsTr("i")
+        font.pointSize: 15
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: greeterDirection.bottom
             topMargin: 50
         }
-        height: 50
-        width: 50
-        source: "qrc:/asset/info-icon.svg"
         MouseArea {
             anchors.fill: parent
             onClicked: createAboutDialog()
         }
     }
+
+//    Image {
+//        id: infoIcon
+//        anchors {
+//            horizontalCenter: parent.horizontalCenter
+//            top: greeterDirection.bottom
+//            topMargin: 50
+//        }
+//        height: 50
+//        width: 50
+//        source: "qrc:/asset/info-icon.svg"
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: createAboutDialog()
+//        }
+//    }
 }

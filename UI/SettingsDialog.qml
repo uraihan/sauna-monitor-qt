@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtQml.Models 2.15
-import QtGraphicalEffects 1.15
+import QtQuick
+import QtQml.Models
+import Qt5Compat.GraphicalEffects
 
 Rectangle {
     id: mainSettings

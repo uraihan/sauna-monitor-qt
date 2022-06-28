@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick
 
 Rectangle {
     id: aboutPage
@@ -18,7 +18,7 @@ Rectangle {
         id: aboutText
         text: "Made by Umair Raihan using Qt/QML<br>MIT License"
         color: "black"
-        font.pixelSize: 30
+        font.pixelSize: 25
         anchors.centerIn: aboutBackground
     }
 

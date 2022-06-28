@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls
 
 Slider {
     id: controlSlider
@@ -8,12 +8,6 @@ Slider {
     stepSize: 1
     orientation: Qt.Vertical
     onValueChanged: saunaController.setTargetTemp(value)
-
-    background: Rectangle {
-        height: parent.height
-        width: 2
-        anchors.centerIn: parent
-    }
 
     handle: Rectangle {
         y: controlSlider.visualPosition * (controlSlider.availableHeight - height)

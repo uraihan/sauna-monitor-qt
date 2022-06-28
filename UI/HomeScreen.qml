@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.15
-import SaunaSysControl 1.0
+import QtQuick
+import Qt5Compat.GraphicalEffects
+import SaunaSysControl
 
 Item {
     id: homeScreen
