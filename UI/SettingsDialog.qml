@@ -3,11 +3,8 @@ import QtQuick.Controls
 import QtQml.Models
 import Qt5Compat.GraphicalEffects
 
-// TODO: Make a stackview for only the settings dialogue
-StackView {
-    id: stackView
-    initialItem: settingsView
 
+Item {
     Rectangle {
         id: settingsView
         anchors.fill: parent
@@ -25,7 +22,7 @@ StackView {
             width: 50
             MouseArea {
                 anchors.fill: parent
-                onClicked: mainLoader.source = "qrc:/UI/HomeScreen.qml"
+                onClicked: stackView.pop()
             }
         }
     }
@@ -34,14 +31,19 @@ StackView {
         id: settingsOptions
         ListElement {
             pos: 0
-            settingsText: "Temperature Unit" }
+            settingsText: "Temperature Unit"
+            source: "qrc:/UI/TemperatureSetting.qml"
+            toolbar: true }
         ListElement {
             pos: 1
-            settingsText: "Sauna Schedule" }
+            settingsText: "Sauna Schedule"
+            source: "qrc:/UI/SaunaSchedule.qml"
+            toolbar: true }
         ListElement {
             pos: 2
             settingsText: "About"
-            source: "qrc:/UI/AboutPage.qml"}
+            source: "qrc:/UI/AboutPage.qml"
+            toolbar: false }
     }
 
     Rectangle {
@@ -74,9 +76,13 @@ StackView {
                 font.pixelSize: 30
                 text: settingsText
             }
+
             MouseArea {
                 anchors.fill: parent
-                onClicked: stackView.push(model.source)
+                onClicked: {
+                    stackView.push(model.source)
+                    mainWindowToolbar.visible = model.toolbar
+                }
             }
         }
     }

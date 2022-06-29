@@ -1,28 +1,14 @@
 import QtQuick
+import QtQml.Models
 
-Rectangle {
-    id: temperatureSetting
-    anchors.fill: parent
-    color: "grey"
 
-    property var tempSetting: null
+Item {
+    id: tempSetting
 
-    function createTempSettingDialog() {
-        if (tempSetting === null) {
-            var component = Qt.createComponent("TemperatureSetting.qml")
-            about = component.createObject(temperatureSetting, {"x": 0, "y": 0})
-            if (tempSetting) {
-                about.anchors.fill = temperatureSetting
-                about.destroyAbout.connect(destroyTempSettingDialog)
-            }
-        }
-    }
-
-    function destroyTempSettingDialog() {
-        if (tempSetting !== null) {
-            tempSetting.destroy()
-            tempSetting = null
-        }
+    Rectangle {
+        id: tempBackground
+        anchors.fill: parent
+        color: "grey"
     }
 
     ListModel {
@@ -38,4 +24,41 @@ Rectangle {
             settingsText: "Cancel" }
     }
 
+    Rectangle {
+        id: temperatureRectangle
+        width: parent.width / 2
+        height: parent.height * 0.6
+        anchors.centerIn: parent
+        color: "grey"
+        border.color: "white"
+        border.width: 4
+    }
+
+    ListView {
+        id: temperatureListView
+        anchors.fill: temperatureRectangle
+        model: tempOptions
+        interactive: false
+        delegate: Rectangle {
+            id: tempButton
+            width: temperatureRectangle.width
+            height: temperatureRectangle.height / 3
+            color: "grey"
+            border.color: "white"
+            border.width: 2
+
+            Text {
+                id: tempButtonText
+                anchors.centerIn: parent
+                color: "black"
+                font.pixelSize: 30
+                text: settingsText
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: stackView.pop()
+            }
+        }
+    }
 }

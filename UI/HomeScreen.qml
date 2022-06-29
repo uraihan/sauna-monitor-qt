@@ -1,16 +1,11 @@
 import QtQuick
+import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import SaunaSysControl
 
+
 Item {
     id: homeScreen
-
-    Rectangle {
-        id: mainBackground
-        anchors.fill: parent
-        color: "grey"
-    }
-
     Text {
         id: temperature
         anchors.centerIn: parent
@@ -42,9 +37,13 @@ Item {
         source: "qrc:/asset/power-button.svg"
         MouseArea {
             anchors.fill: parent
-            onClicked: mainLoader.source = "qrc:/UI/TurningOff.qml"
+            onClicked: {
+                stackView.push("qrc:/UI/TurningOff.qml")
+                mainWindowToolbar.visible = false
+            }
         }
     }
+
     ColorOverlay {
         anchors.fill: powerIcon
         source: powerIcon
@@ -64,7 +63,7 @@ Item {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: mainLoader.source = "qrc:/UI/SettingsDialog.qml"
+            onClicked: stackView.push("qrc:/UI/SettingsDialog.qml")
         }
     }
     ColorOverlay {

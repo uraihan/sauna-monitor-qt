@@ -1,13 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 
-Rectangle {
+
+Item {
     id: turnOffBackground
-    color: "grey"
+//    color: "grey"
 
     BusyIndicator {
         id: turnOffLoading
-        running: image.status === Image.Loading
+        running: Image.Loading
         anchors.centerIn: parent
         width: 100
         height: 100
@@ -16,7 +17,7 @@ Rectangle {
     Timer {
         id: turnOffTimer
         interval: 2000
-        onTriggered: mainLoader.source = "qrc:/UI/Greeter.qml"
+        onTriggered: stackView.push("qrc:/UI/Greeter.qml")
     }
 
     Text {

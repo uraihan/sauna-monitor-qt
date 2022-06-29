@@ -1,25 +1,25 @@
 import QtQuick
 import QtQuick.Controls
 
-Rectangle {
+
+Item {
     id: aboutPage
-    anchors.fill: parent
-    color: "grey"
-    signal destroyAbout()
+//    anchors.fill: parent
+//    signal destroyAbout()
 
     Rectangle {
         id: aboutBackground
         width: parent.width / 2
         height: parent.height * 0.7
         anchors.centerIn: parent
-        color: "grey"
+        color: "transparent"
     }
 
     Text {
         id: aboutText
         text: "Made by Umair Raihan using Qt/QML<br>MIT License"
         color: "black"
-        font.pixelSize: 25
+        font.pixelSize: 20
         anchors.centerIn: aboutBackground
     }
 
@@ -28,7 +28,6 @@ Rectangle {
         height: 50
         width: 50
         text: "\u276E"
-        font.family: "Verdana"
         font.pointSize: 15
 
         anchors {
@@ -39,10 +38,13 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: stackView.pop()
+            onClicked: {
+                mainWindowToolbar.visible = stackView.depth > 3 ? true : false
+                stackView.pop()
+            }
         }
     }
-
+}
 //    Image {
 //        id: backButton
 //        anchors {
@@ -58,4 +60,4 @@ Rectangle {
 //            onClicked: aboutPage.destroyAbout()
 //        }
 //    }
-}
+

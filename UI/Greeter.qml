@@ -2,33 +2,28 @@ import QtQuick
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 
+
 Item {
     id: greeterScreen
-    property var about: null
+//    property var about: null
 
-    function createAboutDialog() {
-        if (about === null) {
-            var component = Qt.createComponent("AboutPage.qml")
-            about = component.createObject(greeterScreen, {"x": 0, "y": 0})
-            if (about) {
-                about.anchors.fill = greeterScreen
-                about.destroyAbout.connect(destroyAboutDialog)
-            }
-        }
-    }
+//    function createAboutDialog() {
+//        if (about === null) {
+//            var component = Qt.createComponent("AboutPage.qml")
+//            about = component.createObject(greeterScreen, {"x": 0, "y": 0})
+//            if (about) {
+//                about.anchors.fill = greeterScreen
+//                about.destroyAbout.connect(destroyAboutDialog)
+//            }
+//        }
+//    }
 
-    function destroyAboutDialog() {
-        if (about !== null) {
-            about.destroy()
-            about = null
-        }
-    }
-
-    Rectangle {
-        id: background
-        anchors.fill: parent
-        color: "grey"
-    }
+//    function destroyAboutDialog() {
+//        if (about !== null) {
+//            about.destroy()
+//            about = null
+//        }
+//    }
 
     Text {
         id: greeterText
@@ -56,7 +51,10 @@ Item {
         source:"qrc:/asset/sauna-icon.svg"
         MouseArea {
             anchors.fill: parent
-            onClicked: mainLoader.source = "qrc:/UI/HomeScreen.qml"
+            onClicked: {
+                stackView.push("qrc:/UI/HomeScreen.qml")
+                mainWindowToolbar.visible = true
+            }
         }
     }
     ColorOverlay {
@@ -72,12 +70,15 @@ Item {
             top: saunaIcon.bottom
             topMargin: -30
         }
-        text: "Tap the Kiuas above to start"
+        text: "Tap here to start"
         color: "white"
         font.pixelSize: 30
         MouseArea {
             anchors.fill: parent
-            onClicked: mainLoader.source = "qrc:/UI/HomeScreen.qml"
+            onClicked: {
+                stackView.push("qrc:/UI/HomeScreen.qml")
+                mainWindowToolbar.visible = true
+            }
         }
     }
 
@@ -85,19 +86,20 @@ Item {
         id: infoIcon
         height: 50
         width: 50
-        text: qsTr("i")
+        text: "i"
+        font.family: "Verdana"
         font.pointSize: 15
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: greeterDirection.bottom
-            topMargin: 50
+            topMargin: 24
         }
         MouseArea {
             anchors.fill: parent
-            onClicked: createAboutDialog()
+            onClicked: stackView.push("qrc:/UI/AboutPage.qml")
         }
     }
-
+}
 //    Image {
 //        id: infoIcon
 //        anchors {
@@ -113,4 +115,3 @@ Item {
 //            onClicked: createAboutDialog()
 //        }
 //    }
-}

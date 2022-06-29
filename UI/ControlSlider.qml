@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
+
 Slider {
     id: controlSlider
     from: 30
