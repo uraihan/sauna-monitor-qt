@@ -7,8 +7,8 @@ import SaunaSysControl
 
 ApplicationWindow {
     id: mainWindow
-    width: 640
     height: 480
+    width: 640
     visible: true
     title: "Sauna Temperature Monitor"
 
@@ -27,31 +27,26 @@ ApplicationWindow {
 //        }
 //    }
 
-    // TODO: Find a way to display the main label consistently on the middle of the layout
     header: ToolBar {
         id: mainWindowToolbar
         visible: false
-        background: Rectangle {
+
+        Rectangle {
             anchors.fill: parent
             color: "#6affcd"
-        }
-
-        anchors {
-            right: parent.right
-            left: parent.left
-        }
-
-        RowLayout {
-            anchors.fill: parent
-
-//            ToolButton {
-//                action: backAction
-//            }
+            Label {
+                id: appName
+                text: "SAUNAMASTERRR"
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.pointSize: 15
+            }
 
             Label {
                 id: backButton
-                text: stackView.depth > 3 ? "Back" : " "
-                Layout.alignment: Qt.AlignLeft
+                text: "Back"
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                visible: stackView.depth > 3 ? true : false
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -62,13 +57,12 @@ ApplicationWindow {
                 }
             }
 
-            Label {
-                id: appName
-                text: "SAUNAMASTERRR"
-                Layout.alignment: Qt.AlignHCenter
-                font.pointSize: 15
-            }
         }
+
+//        anchors {
+//            right: parent.right
+//            left: parent.left
+//        }
     }
 
     background: Rectangle {
