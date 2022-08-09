@@ -4,8 +4,6 @@ import QtQuick.Controls
 
 Item {
     id: aboutPage
-//    anchors.fill: parent
-//    signal destroyAbout()
 
     Rectangle {
         id: aboutBackground
@@ -19,7 +17,7 @@ Item {
         id: aboutText
         text: "Made by Umair Raihan using Qt/QML<br>MIT License"
         color: "black"
-        font.pixelSize: 20
+        font.pixelSize: 25
         anchors.centerIn: aboutBackground
     }
 
@@ -39,7 +37,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                mainWindowToolbar.visible = stackView.depth > 3 ? true : false
+                mainWindowToolbar.visible = stackView.depth > 2 ? true : false
                 stackView.pop()
             }
         }

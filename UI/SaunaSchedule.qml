@@ -13,11 +13,25 @@ Item {
 
     property var date: new Date()
 
+    Dialog {
+        id: popup
+        height: 100
+        width: 200
+        modal: true
+        focus: true
+        anchors.centerIn: parent
+        Label {
+            text: "Date is selected"
+            anchors.centerIn: parent
+        }
+        standardButtons: Dialog.Ok
+    }
+
     ListView {
         id: calendar
         anchors.centerIn: parent
-        height: 400
-        width: 500
+        height: 350
+        width: 540
         snapMode: ListView.SnapOneItem
         orientation: ListView.Vertical
         highlightRangeMode: ListView.StrictlyEnforceRange
@@ -25,6 +39,13 @@ Item {
         model: CalendarModel {
             from: new Date(date.getFullYear(), date.getMonth(), 1)
             to: new Date(date.getFullYear(), date.getMonth(), 28 || 29 || 30 || 31)
+        }
+
+        header: Label {
+            id: titleCalendar
+            text: date.toLocaleString(locale, "MMMM yyyy")
+            font.pixelSize: Qt.application.font.pixelSize * 1.5
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
         delegate: MonthGrid {
@@ -39,7 +60,7 @@ Item {
             delegate: Rectangle {
                 id: selectedDate
                 property bool highlighted: false
-                color: highlighted ? "green" : "grey"
+                color: highlighted ? "green" : "transparent"
                 radius: width * 0.5
                 scale: 0.8
                 enabled: model.month === monthGrid.month
@@ -54,7 +75,14 @@ Item {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: highlighted = true
+                    onClicked: {
+                        if (highlighted) {
+                            highlighted = false
+                        } else {
+                            highlighted = true
+                            popup.open()
+                        }
+                    }
                 }
             }
         }

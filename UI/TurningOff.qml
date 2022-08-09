@@ -4,7 +4,6 @@ import QtQuick.Controls
 
 Item {
     id: turnOffBackground
-//    color: "grey"
 
     BusyIndicator {
         id: turnOffLoading
@@ -17,7 +16,7 @@ Item {
     Timer {
         id: turnOffTimer
         interval: 2000
-        onTriggered: stackView.push("qrc:/UI/Greeter.qml")
+        onTriggered: stackView.pop(null)
     }
 
     Text {

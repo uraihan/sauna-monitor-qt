@@ -16,17 +16,6 @@ ApplicationWindow {
         id: saunaController
     }
 
-//    Action {
-//        id: backAction
-//        icon.color: "transparent"
-//        text: stackView.depth > 2 ? "Back" : " "
-//        onTriggered: {
-//            if (stackView.depth > 2) {
-//                stackView.pop()
-//            }
-//        }
-//    }
-
     header: ToolBar {
         id: mainWindowToolbar
         visible: false
@@ -37,16 +26,35 @@ ApplicationWindow {
             Label {
                 id: appName
                 text: "SAUNAMASTERRR"
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.centerIn: parent
                 font.pointSize: 15
+            }
+
+            Label {
+                id: aboutButton
+                text: "About"
+                anchors {
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter
+                    margins: 15
+                }
+                font.pixelSize: 13
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: stackView.push("qrc:/UI/AboutPage.qml")
+                }
             }
 
             Label {
                 id: backButton
                 text: "Back"
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                visible: stackView.depth > 3 ? true : false
+                anchors {
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                    margins: 15
+                }
+                font.pixelSize: 13
+                visible: stackView.depth > 2 ? true : false
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -56,13 +64,7 @@ ApplicationWindow {
                     }
                 }
             }
-
         }
-
-//        anchors {
-//            right: parent.right
-//            left: parent.left
-//        }
     }
 
     background: Rectangle {
@@ -74,10 +76,4 @@ ApplicationWindow {
         anchors.fill: parent
         initialItem: "./UI/Greeter.qml"
     }
-
-//    Loader {
-//        id: mainLoader
-//        anchors.fill: parent
-//        source: "./UI/Greeter.qml"
-//    }
 }

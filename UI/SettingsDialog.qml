@@ -1,3 +1,5 @@
+// This file is not longer in use, but it is preserved only for an example to implement certain Qt components such as ListView + ListModel, etc.
+
 import QtQuick
 import QtQuick.Controls
 import QtQml.Models
