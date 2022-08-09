@@ -5,25 +5,6 @@ import QtQuick.Controls
 
 Item {
     id: greeterScreen
-//    property var about: null
-
-//    function createAboutDialog() {
-//        if (about === null) {
-//            var component = Qt.createComponent("AboutPage.qml")
-//            about = component.createObject(greeterScreen, {"x": 0, "y": 0})
-//            if (about) {
-//                about.anchors.fill = greeterScreen
-//                about.destroyAbout.connect(destroyAboutDialog)
-//            }
-//        }
-//    }
-
-//    function destroyAboutDialog() {
-//        if (about !== null) {
-//            about.destroy()
-//            about = null
-//        }
-//    }
 
     Text {
         id: greeterText

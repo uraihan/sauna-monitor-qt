@@ -12,6 +12,10 @@ Item {
         color: "white"
         font.pixelSize: 150
         text: saunaController.currentTemp
+        MouseArea {
+            anchors.fill: parent
+            onClicked: stackView.push("qrc:/UI/TemperatureSetting.qml")
+        }
     }
 
     Text {
@@ -51,7 +55,7 @@ Item {
     }
 
     Image {
-        id: settingsIcon
+        id: calendarIcon
         anchors {
             verticalCenter: parent.verticalCenter
             right: temperature.left
@@ -59,16 +63,16 @@ Item {
         }
         height: 70
         width: 70
-        source: "qrc:/asset/gear-icon.svg"
+        source: "qrc:/asset/calendar-icon.svg"
 
         MouseArea {
             anchors.fill: parent
-            onClicked: stackView.push("qrc:/UI/SettingsDialog.qml")
+            onClicked: stackView.push("qrc:/UI/SaunaSchedule.qml")
         }
     }
     ColorOverlay {
-        anchors.fill: settingsIcon
-        source: settingsIcon
+        anchors.fill: calendarIcon
+        source: calendarIcon
         color: "white"
     }
 

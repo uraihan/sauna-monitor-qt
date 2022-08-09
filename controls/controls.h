@@ -2,6 +2,7 @@
 #define CONTROLS_H
 
 #include <QObject>
+#include <gpiod.h>
 
 class Controls : public QObject
 {
@@ -31,6 +32,7 @@ public slots:
     void setTargetTemp(int TargetTemp);
     void setStatusMessage(QString StatusMessage);
     void setSaunaState(Controls::HeatingState SaunaState);
+    void checkGPIOvalue();
 
 signals:
 
@@ -40,6 +42,9 @@ signals:
     void saunaStateChanged();
 
 private:
+    struct gpiod_chip *chip;
+    struct gpiod_line *line;
+    int rv;
     void checkSaunaStatus();
     int m_currentTemp;
     int m_targetTemp;

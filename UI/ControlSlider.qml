@@ -4,7 +4,7 @@ import QtQuick.Controls
 
 Slider {
     id: controlSlider
-    from: 30
+    from: 10
     to: 100
     stepSize: 1
     orientation: Qt.Vertical
