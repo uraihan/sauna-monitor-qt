@@ -73,3 +73,5 @@ Thumbs.db
 *.exe
 find . -executable -type f
 
+# QtCreator CMake
+CMakeLists.txt.user*
